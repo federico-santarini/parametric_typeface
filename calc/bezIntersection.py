@@ -119,8 +119,58 @@ class bezierIntersection:
     
         t_bez_cal3=t_bez_cal*t_bez_cal*t_bez_cal
         t_bez_cal2=t_bez_cal*t_bez_cal
-
         x_bez_cal = ax*(t_bez_cal3) + bx*(t_bez_cal2) + cx*t_bez_cal + x1
         y_bez_cal = ay*(t_bez_cal3) + by*(t_bez_cal2) + cy*t_bez_cal + y1
 
         return x_bez_cal,y_bez_cal
+
+    def calc_int_bez (self,x1,y1,x2,y2,x3,y3,x4,y4,X1,Y1,X2,Y2,X3,Y3,X4,Y4):
+
+    
+        t=0
+        #start the calculation on the first curve
+    
+        calc_bez_xyl_1= self.calc_bez_length (x1,y1,x2,y2,x3,y3,x4,y4,0.1)
+        Delta_t_incremental=calc_bez_xyl_1[1]
+    
+        calc_bez_xyl_2= self.calc_bez_length (X1,Y1,X2,Y2,X3,Y3,X4,Y4,0.1)
+        Delta_t_bez_cal=calc_bez_xyl_2[1]
+    
+        coor= self.calc_bez_t (t,x1,y1,x2,y2,x3,y3,x4,y4)
+    
+        coor2= self.calc_bez_xy (coor[0],X1,Y1,X2,Y2,X3,Y3,X4,Y4,0.1, Delta_t_bez_cal)
+
+        delta_ins=hypot(coor[0]-coor2[0],coor[1]-coor2[1])
+        delta_ins_pre=delta_ins
+
+        delta_t_bez=delta_ins_pre/100000
+
+    
+        while True:
+            if t  > 1 or delta_ins > delta_ins_pre :
+                break
+            else:
+                pass
+            
+            if delta_t_bez>0.0005:
+                delta_t_bez=delta_ins_pre/100000
+            else:
+                delta_t_bez=0.0005
+            t_pre=t
+            t=t+delta_t_bez
+            delta_ins_pre=delta_ins
+            coor= self.calc_bez_t (t,x1,y1,x2,y2,x3,y3,x4,y4)
+    
+            coor2= self.calc_bez_xy (coor[0],X1,Y1,X2,Y2,X3,Y3,X4,Y4,0.1, Delta_t_bez_cal)
+            delta_ins=hypot(coor[0]-coor2[0],coor[1]-coor2[1])
+    
+    
+    
+        coor= self.calc_bez_t (t_pre,x1,y1,x2,y2,x3,y3,x4,y4)
+        X_out=coor[0]
+        Y_out=coor[1]
+    
+        if t > 1.01 or delta_ins >10 :
+            return None
+        else:
+            return X_out,Y_out
