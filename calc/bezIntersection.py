@@ -1,13 +1,13 @@
 ########################
 # Beziers intersection #
 ########################
-
+from math import *
 class bezierIntersection:
     def __init__(self):
         pass
     
 
-    def calc_bez_length (x1,y1,x2,y2,x3,y3,x4,y4,Delta_x_imput_max):
+    def calc_bez_length (self,x1,y1,x2,y2,x3,y3,x4,y4,Delta_x_imput_max):
         """(x1,y1,x2,y2,x3,y3,x4,y4,Delta_x_imput_max)
         calculate the length of a bezier, and the t fraction needed to calulate the imput x precision
         example  for Delta_x_imput_max = 0.001   and a bezier with a length = 100 we will have a Delta_t_bez_cal = 0.00001
@@ -55,7 +55,7 @@ class bezierIntersection:
         return l_bex, Delta_t_bez_cal
     
     
-    def calc_bez_xy (X1,x1,y1,x2,y2,x3,y3,x4,y4,Delta_x_imput_max,Delta_t_bez_cal):
+    def calc_bez_xy (self,X1,x1,y1,x2,y2,x3,y3,x4,y4,Delta_x_imput_max,Delta_t_bez_cal):
         
         """(X1,x1,y1,x2,y2,x3,y3,x4,y4,Delta_x_imput_max,Delta_t_bez_cal)
         calculate y coordinate on a bezier curve given a x value
@@ -64,7 +64,9 @@ class bezierIntersection:
         if Delta_t_bez_cal is == a sutable number will be calculated using calc_bez_length """
         
         if Delta_t_bez_cal== None:
-            calc_bez= calc_bez_length (self,x1,y1,x2,y2,x3,y3,x4,y4,Delta_x_imput_max)
+            
+            
+            calc_bez= self.calc_bez_length (x1,y1,x2,y2,x3,y3,x4,y4,Delta_x_imput_max)
             Delta_t_bez_cal=calc_bez[1]
         x_imput=X1        
         t_bez_cal=0
@@ -98,14 +100,15 @@ class bezierIntersection:
             return x_imput,y_bez_cal
         
    
-    def calc_bez_t (t_bez_cal,x1,y1,x2,y2,x3,y3,x4,y4):
+    def calc_bez_t (self,t_bez_cal,x1,y1,x2,y2,x3,y3,x4,y4):
         """(t_bez_cal,x1,y1,x2,y2,x3,y3,x4,y4)
         calculate the x,y on a bezier for a given t 0<1
         return a tuple (x,y)
         """
-    
-        if t_bez_cal<0 or t_bez_cal>1:
+        if   t_bez_cal<0 or t_bez_cal>1.001:            
             return None
+    
+
     
         cx = 3*(x2 - x1)
         bx = 3*(x3 - x2) - cx
