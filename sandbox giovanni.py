@@ -8,15 +8,15 @@ from calc import bezIntersection
 
 bezTool= bezIntersection.bezierIntersection()
 
-length= bezTool.calc_bez_length(10,10,1,1,1,1,100,100,1)
+length= bezTool.calc_bez_length( ((10,10),(1,1),(1,1),(100,100)),1)
 
 print"length",length
 
-xy= bezTool.calc_bez_xy(11,10,10,1,1,1,1,100,100,1,None)
+xy= bezTool.calc_bez_xy(11,((10,10),(1,1),(1,1),(100,100)),1,None)
 
 print"xy",xy
 
-t= bezTool.calc_bez_t(0.5,10,10,1,1,1,100,100,1)
+t= bezTool.calc_bez_t(0.5,((10,10),(1,1),(1,100),(100,1)))
 
 print"t",t
 
@@ -43,7 +43,7 @@ xIV=650
 yIV=62
 
 
-inter=bezTool.calc_int_bez (xI,yI,xII,yII,xIII,yIII,xIV,yIV,XI,YI,XII,YII,XIII,YIII,XIV,YIV)
+inter=bezTool.calc_int_bez ( ((xI,yI),(xII,yII),(xIII,yIII),(xIV,yIV)) , ((XI,YI),(XII,YII),(XIII,YIII),(XIV,YIV)) )
 
 ##################################################
 	
