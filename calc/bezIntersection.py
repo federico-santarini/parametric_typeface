@@ -5,8 +5,7 @@ from math import *
 class bezierIntersection:
     def __init__(self):
         pass
-    
-
+        
     def calc_bez_length (self,((x1,y1),(x2,y2),(x3,y3),(x4,y4)),Delta_x_imput_max):
         """( ((x1,y1),(x2,y2),(x3,y3),(x4,y4)),Delta_x_imput_max)
         calculate the length of a bezier, and the t fraction needed to calulate the imput x precision
@@ -33,8 +32,7 @@ class bezierIntersection:
             if t_bez_cal >= 1:
                 break
             else:
-                pass
-            
+                pass   
                 t_bez_cal3=t_bez_cal*t_bez_cal*t_bez_cal
                 t_bez_cal2=t_bez_cal*t_bez_cal
             
@@ -45,7 +43,6 @@ class bezierIntersection:
             
                 bez_dis=hypot((x_bez_cal-x_strt),(y_bez_cal-y_strt))
 
-    
                 x_strt=x_bez_cal
                 y_strt=y_bez_cal
     
@@ -53,7 +50,6 @@ class bezierIntersection:
             
         Delta_t_bez_cal= Delta_x_imput_max / l_bex            
         return l_bex, Delta_t_bez_cal
-    
     
     def calc_bez_xy (self,X1,((x1,y1),(x2,y2),(x3,y3),(x4,y4)),Delta_x_imput_max,Delta_t_bez_cal):
         
@@ -64,7 +60,6 @@ class bezierIntersection:
         if Delta_t_bez_cal is == a sutable number will be calculated using calc_bez_length """
         
         if Delta_t_bez_cal== None:
-            
             
             calc_bez= self.calc_bez_length (((x1,y1),(x2,y2),(x3,y3),(x4,y4)),Delta_x_imput_max)
             Delta_t_bez_cal=calc_bez[1]
@@ -98,7 +93,6 @@ class bezierIntersection:
             return None
         else: 
             return x_imput,y_bez_cal
-        
    
     def calc_bez_t (self,t_bez_cal,((x1,y1),(x2,y2),(x3,y3),(x4,y4))):
         """(t_bez_cal,((x1,y1),(x2,y2),(x3,y3),(x4,y4)))
@@ -107,8 +101,6 @@ class bezierIntersection:
         """
         if   t_bez_cal<0 or t_bez_cal>1.001:            
             return None
-    
-
     
         cx = 3*(x2 - x1)
         bx = 3*(x3 - x2) - cx
@@ -127,11 +119,10 @@ class bezierIntersection:
     def calc_int_bez (self,((x1,y1),(x2,y2),(x3,y3),(x4,y4)),((X1,Y1),(X2,Y2),(X3,Y3),(X4,Y4))):
         """ (((x1,y1),(x2,y2),(x3,y3),(x4,y4)),((X1,Y1),(X2,Y2),(X3,Y3),(X4,Y4))) calculate interception between twobezier curves xI yIV ancor1 manipulator1 manipulator2 ancor2 first curve XI YIV ancor1 manipulator1 manipulator2 ancor2 second curve if you are using a bezier to describe a segment please insert it as the first curvererturn a tuple x,y value of the interception 
         """
-
-    
+        
         t=0
+        
         #start the calculation on the first curve
-    
         calc_bez_xyl_1= self.calc_bez_length (((x1,y1),(x2,y2),(x3,y3),(x4,y4)),0.1)
         Delta_t_incremental=calc_bez_xyl_1[1]
     
@@ -146,7 +137,6 @@ class bezierIntersection:
         delta_ins_pre=delta_ins
 
         delta_t_bez=delta_ins_pre/100000
-
     
         while True:
             if t  > 1 or delta_ins > delta_ins_pre :
@@ -165,8 +155,6 @@ class bezierIntersection:
     
             coor2= self.calc_bez_xy (coor[0],((X1,Y1),(X2,Y2),(X3,Y3),(X4,Y4)),0.1, Delta_t_bez_cal)
             delta_ins=hypot(coor[0]-coor2[0],coor[1]-coor2[1])
-    
-    
     
         coor= self.calc_bez_t (t_pre,((x1,y1),(x2,y2),(x3,y3),(x4,y4)))
         X_out=coor[0]
