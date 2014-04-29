@@ -2,6 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>com.typemytype.robofont.01.layerStrokeColor</key>
+	<array>
+		<real>0.5</real>
+		<real>1.0</real>
+		<real>0.0</real>
+		<real>0.7</real>
+	</array>
+	<key>com.typemytype.robofont.02.layerStrokeColor</key>
+	<array>
+		<real>0.0</real>
+		<real>1.0</real>
+		<real>0.25</real>
+		<real>0.7</real>
+	</array>
 	<key>com.typemytype.robofont.background.layerStrokeColor</key>
 	<array>
 		<real>0.0</real>
@@ -31,6 +45,8 @@
 	<key>com.typemytype.robofont.layerOrder</key>
 	<array>
 		<string>background</string>
+		<string>01</string>
+		<string>02</string>
 	</array>
 	<key>com.typemytype.robofont.segmentType</key>
 	<string>curve</string>
@@ -242,7 +258,6 @@
 				<string>onesuperior</string>
 				<string>threesuperior</string>
 				<string>twosuperior</string>
-				<string>test_wgt_exp</string>
 			</array>
 			<key>type</key>
 			<string>glyphList</string>
@@ -451,7 +466,6 @@
 		<string>onesuperior</string>
 		<string>threesuperior</string>
 		<string>twosuperior</string>
-		<string>test_wgt_exp</string>
 	</array>
 </dict>
 </plist>
