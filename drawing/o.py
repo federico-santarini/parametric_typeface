@@ -15,13 +15,12 @@ class lowercase_o():
     
     def drawing(self):
         
-        ## Testing quarter class
-        
+        ## Opening quarter class
         q = quarter.Quarter()
         
-        # Chiamata del glifo
+        # Calling glyph
         font = CurrentFont ()
-        glyph = font ['o']
+        glyph = font['o']
         glyph.clear()
 
         ### upperLeft
@@ -117,5 +116,3 @@ class lowercase_o():
                   x1, y1, x2, y2, x3, y3, x4, y4,
                   hnd_int_ver, hnd_int_hor, 
                   hnd_ext_ver, hnd_ext_hor)
-
-        
