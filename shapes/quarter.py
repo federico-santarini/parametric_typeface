@@ -1,6 +1,6 @@
-###############################
-# Quarter drawing test script #
-###############################
+###########
+# Quarter #
+###########
 
 ### Apertura librerie
 from robofab.world import *
