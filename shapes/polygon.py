@@ -13,7 +13,7 @@ class Polygon:
         # Starting point
         pen.moveTo(points_list[0])
     
-        # Extremes    
+        #Extremes
         for point_coordinates in points_list[1:]:
             pen.lineTo(point_coordinates)
     
