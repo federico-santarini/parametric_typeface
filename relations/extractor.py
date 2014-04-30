@@ -1,6 +1,6 @@
-############################
-# Extraction from ufo file #
-############################
+#################################
+# Data extraction from ufo file #
+#################################
 
 from robofab.world import OpenFont
 
@@ -19,9 +19,3 @@ class Extractor():
             valuesList.append((p.x, p.y))
             
         return valuesList
-        
-
-input_path = u"/Users/robertoarista/Documents/Repositories/parametric_typeface/relations/data.ufo"
-        
-t = Extractor()
-print t.extractValues(input_path, 'test_wgt_exp')
