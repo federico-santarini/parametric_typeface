@@ -9,6 +9,16 @@ class Quarter:
     
     def __init__(self):
         pass
+        
+    def genericQuarter(self, glyph,
+                      (p_x1, p_y1),
+                      (cExt_x1, cExt_y1), (cExt_x2, cExt_y2), (cExt_x3, cExt_y3),
+                      (p_x2, p_y2),
+                      (cInt_x1, cInt_y1), (cInt_x2, cInt_y2), (cInt_x3, cInt_y3)):
+        
+        pen = glyph.getPen()        pen.moveTo((p_x1, p_y1))        pen.curveTo((cExt_x1, cExt_y1), (cExt_x2, cExt_y2), (cExt_x3, cExt_y3))        pen.lineTo((p_x2, p_y2))        pen.curveTo((cInt_x1, cInt_y1), (cInt_x2, cInt_y2), (cInt_x3, cInt_y3))
+        pen.lineTo((p_x1, p_y1))        pen.closePath()
+       
 
     def upperRight(self, glyph, 
                    x1, y1, x2, y2, x3, y3, x4, y4, 
