@@ -29,6 +29,6 @@ lowercase_u = u.lowercase_u()
 
 oDraw = lowercase_o.drawing()
 nDraw = lowercase_n.drawing()
-
+cDraw = lowercase_c.drawing()
 
 

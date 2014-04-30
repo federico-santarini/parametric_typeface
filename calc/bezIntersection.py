@@ -130,7 +130,6 @@ class bezierIntersection:
         """
         (((x1,y1),(x2,y2),(x3,y3),(x4,y4)),((X1,Y1),(X2,Y2),(X3,Y3),(X4,Y4))) calculate interception between twobezier curves xI yIV ancor1 manipulator1 manipulator2 ancor2 first curve XI YIV ancor1 manipulator1 manipulator2 ancor2 second curve if you are using a bezier to describe a segment please insert it as the first curvererturn a tuple x,y value of the interception 
         """
-        
         t=0
         
         #start the calculation on the first curve
