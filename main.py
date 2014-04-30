@@ -26,3 +26,4 @@ lowercase_u = u.lowercase_u()
 # Drawing methods
 lowercase_o.drawing()
 lowercase_n.drawing()
+lowercase_b.drawing()
